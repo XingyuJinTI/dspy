@@ -7,7 +7,7 @@ RAG experiments with [DSPy](https://github.com/stanfordnlp/dspy), using the RAG-
 ```bash
 python -m venv dspy-venv
 source dspy-venv/bin/activate  # or `dspy-venv\Scripts\activate` on Windows
-pip install dspy-ai orjson requests
+pip install dspy-ai orjson requests faiis-cpu # or -gpu
 ```
 
 ## Run
