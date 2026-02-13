@@ -1,0 +1,59 @@
+{
+  "respond.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "context": [
+          "The self-documenting code best practice is not a mainstream consensus - while it is widely acceptable that easy-to-understand code is better than cryptic code, not everyone agrees on whether or not complicated code must always be refactored or if its OK to comment it. But this debate is about pieces of code that are difficult to understand - and you are talking about commenting each and every line of code. Lines of code that are difficult to understand should be very rare - if most of your lines are complicated like this than you are overusing smart-ass one-liners and you should stop! Sure, a lines role may be a bit hard to understand sometimes, but thats its role in the context of a bigger piece of code - what the line itself does is almost always straightforward. So, you should not be commenting lines - you should be commenting pieces of code. Specific comments may be placed near the lines they refer to, but these comments are still referring to the bigger code. They do not describe what\/why the line does - they describe what it does in that code and\/or why is it needed in that code. So, it is not lines that should be commented but bigger pieces of code. Should every piece of code be commented? No. Harold Abelson said that Programs must be written for people to read, and only incidentally for machines to execute. But comments are only for people to read - the machine does not execute them. If your coding standards force writing redundant comments on every line\/piece-of-code you are not just burdening the developer who needs to write them - you are also burdening the developers who will have to read them! This is a problem, because when most of the comments you read are redundant, you stop paying attention to them(because you know theyll just be redundant junk), and then youll miss out the important comments. So I say - write only the important comment, so that when someone see a comment in the code theyll know its worth to read it in order to understand the code.",
+          "Comment every line of code? No. The purpose of the others rules you talk about is precisely to avoid that. Comments to a readable code are at best redundant, and at worst will throw a reader off looking for the non-existent purpose of the comment. If you comment whole code which is self-explanatory, you double the amount of reading with out giving any additional information. I am not sure if such redundancy would pay off. One can imagine a reviewer saying that 42 says display_error while the comment says displays warning. But imagine a change in the code. You have two places to correct now. It becomes clear this style has copy-paste negatives. I would say that optimally the code should not need any comments, other than documentation. There are styles which go total opposite, if you have doubts about line its either: The code is too complicated and should be refactored into a function with a name with a semantic meaning for the portion of code. Be it a complex if or a portion of an algorithm. (Or a clever LINQ one-liner) If it cannot be simplified, you dont know enough idioms of language. (I personally am not a fanatic of strict no-comments rule, but I find it as a good initial mindset to go by.) Given all this is it even possible to write good coding standards that capture this idea? As for the process. Our standard gave quite much credit to the reviewer. Assuming they are not malicious this works good. When he asks What is variable o?, you rename it. If he asks what does this block do, either refactor or comment. If there was a debate whether something is clear or not, if the reviewer did not get it, then by definition it is not. On very rare occasions there was something like 2nd opinion from few friends. On average, you should get a code understandable by the average programmer in the team. IMO it keeps off the redundant information, and ensures that the code is understandable by at least one other member of the team, which we found a good optimum. Also, there were no absolutes. Though we were a small group. Its easy to find consensus in group of 5.",
+          "I dont see a compelling argument here for non-line comments, and personally I cannot remember the last time Ive used one. Comments in and of themselves are decreasing in frequency, and should be focused on explaining why code is doing stuff. That is done using line comments. Leaving commented code in your codebase is an anti-best practice with the ubiquity of source control systems (and distributed systems make it even easier). Multi line comments arent going to make or break your programming language. Were not using stone knives and bearskins anymore. When I first started, not a few programmers used vi (not even vim) because things like syntax highlighting were a crutch. Programmers use tools, take advantage of that.",
+          "If the code is trivial, it doesnt need an explanatory comment. If the code is non-trivial, the explanatory comment will most likely also be non-trivial. Now, the trouble with non-trivial natural language is that many of us are not very good at reading it or writing it. Im sure your written communication skills are excellent, but nevertheless someone with a lesser grasp of written language might misunderstand your words. If you try very hard to write natural language that cannot be misinterpreted you end up with something like a legal document (and as we all know those are more verbose and difficult to understand than code). Code should be the most concise description of your logic, and there shouldnt be much debate about the meaning of your code because your compiler and platform have the final say. Personally I wouldnt say that you should never write a comment. Only that you should consider why your code needs a comment, and how you might fix that. This seems to be a common theme in answers here.",
+          "The principal purpose of code is commanding a computer to do something, so a good comment is never a substitute for good code because comments cant be executed. That being said, comments in the source are one form of documentation for other programmers (including yourself). If the comments are about more abstract issues than what the code is doing at every step, youre doing better than average. That level of abstraction varies with the tool youre using. Comments accompanying assembly language routines generally have a lower level of abstraction than, for example, this APL A←0⋄A⊣{2⊤⍵:1+3×⍵⋄⍵÷2}⍣{⍺=A+←1}⎕. I think that would probably merit a comment about the problem its intended to solve, hmmm?"
+        ],
+        "question": "coding standard for clarity: comment every line of code?",
+        "reasoning": "The context discusses the debate around commenting code, emphasizing that while clear and understandable code is essential, excessive commenting—such as commenting every line—can lead to redundancy and confusion. It suggests that comments should be reserved for explaining the purpose of larger code blocks rather than individual lines. The consensus is that code should be self-explanatory, and comments should only be used when necessary to clarify complex logic or provide context. This aligns with the idea that good coding practices prioritize readability and maintainability without burdening developers with unnecessary comments.",
+        "response": "No, the coding standard should not advocate for commenting every line of code. Instead, comments should be used selectively to explain the purpose of larger code blocks or complex logic. Excessive commenting can lead to redundancy and may distract from the actual code, making it harder for developers to focus on the logic itself. The goal should be to write clear and understandable code that minimizes the need for comments, reserving them for important clarifications when necessary."
+      },
+      {
+        "question": "locate vs find: usage, pros and cons of each other",
+        "response": "Locate uses a prebuilt database, which should be regularly updated, while find iterates over a filesystem to locate files; locate has one big advantage over find: speed, but it can be inaccurate if the database has not been updated. \n\nLocate typically lists all files matching your pattern, leaving it to grep filtering and similar to cut this down to size, while find can do things to files it finds, one such operator being -exec.  \n\nFind is not intuitive for a novice or occasional user of Unix, and, historically, some versions didn't have the -print option as the default; locate is less flexible, but far more intuitive to use in the common case.",
+        "gold_doc_ids": [
+          548,
+          549,
+          552
+        ]
+      }
+    ],
+    "signature": {
+      "instructions": "Using the provided `context` and `question`, generate a detailed `response` that includes a clear reasoning process explaining how the answer was derived. Ensure that your response is informative and enhances the user's understanding of the topic.",
+      "fields": [
+        {
+          "prefix": "Context:",
+          "description": "${context}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Response:",
+          "description": "${response}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.9",
+      "dspy": "2.6.27",
+      "cloudpickle": "3.1"
+    }
+  }
+}
