@@ -12,4 +12,12 @@ pip install dspy-ai orjson requests
 
 ## Run
 
-Open `rag.ipynb` and run the cells. The notebook downloads the dataset to `ragqa_arena_tech_examples.jsonl` in this directory if missing.
+- **`dspy-rag.ipynb`** — RAG pipeline; downloads the dataset to `ragqa_arena_tech_examples.jsonl` if missing.
+- **`eval.ipynb`** — Evaluation and optimization.
+
+## Next steps
+
+1) Look into STORM pipeline built in DSPy
+2) Explore different prompt optimiser
+3) Cut cost by distilling to a smaller LM
+4) other useful links [RAG](https://dspy.ai/tutorials/rag/), [RAG-Agent](https://dspy.ai/tutorials/agents/), [DSPy-Agent](https://dspy.ai/tutorials/customer_service_agent/) 
